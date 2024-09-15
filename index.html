@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: rgb(25, 33, 46);
+    }
+    .para{
+      color: white;
+      font-size: 40px;
+    }
+    .quoteHolder{
+      background-color:rgba(255, 255, 255, 0.7);
+      width: 70%;
+      padding: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    button{
+      padding: 10px 20px;
+      font-size: 20px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+    }
+    .quote{
+      display: flex;
+     
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border: 1px solid black;
+      border-radius: 5px;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="para">Let's start our <span class="status"></span> with a new quote</p>
+    <div class="quoteHolder">
+      <div>
+      <p id="quote">Lets Begin! Click to start </p>
+    </div>
+      <button onclick="getQuote()">Get Quote</button>
+    </div>
+  </div>
+    <script>
+      const quotes = [
+    {
+        quote: "The possibilities are endless as long as you don't limit yourself.",
+        backgroundColor: "#34495e",
+       
+    },
+    {
+        quote: "Surround yourself with people who inspire you to become even better.",
+        backgroundColor: "#2c3e50",
+        
+    },
+    {
+        quote: "Your time is limited, so don't waste it living someone else's life.",
+        backgroundColor: "#16a085",
+        
+    },
+    {
+        quote: "Remember the past, but live for today and strive for an even better tomorrow.",
+        backgroundColor: "#27ae60",
+        
+    },
+    {
+        quote: "No matter where you began or what happened along the way, you have the power to get to where you're supposed to be.",
+        backgroundColor: "#2980b9",
+        
+    },
+    {
+        quote: "Set high standards for yourself and live up to your own expectations.",
+        backgroundColor: "#8e44ad",
+        
+    },
+    {
+        quote: "Don't tie yourself in knots trying to be someone you are not",
+        backgroundColor: "#d35400",
+        
+    },
+    {
+        quote: "Your mistakes don't define you, but they can help you find your way.",
+        backgroundColor: "#c0392b",
+        
+    },
+    {
+        quote: "Life is too short to say yes to things you don't want to do.",
+        backgroundColor: "#f39c12",
+        
+    },
+    {
+        quote: "Don't take flexibility for granted. The older you get, the harder it is to bend.",
+        backgroundColor: "#7f8c8d",
+        
+    }
+];
+
+      let status = document.querySelector('.status');
+      let date = new Date();
+      let hours = date.getHours();
+      if(hours >= 0 && hours < 18){
+        status.textContent = 'Day';
+      }
+      
+      else{
+        status.textContent = 'Night';
+      }
+      function getQuote() {
+        let randomNumber = Math.floor(Math.random() * 10);
+        const quote = quotes[randomNumber].quote;
+        const backgroundColor = quotes[randomNumber].backgroundColor;
+        const text = `"${quote}"`
+
+        document.getElementById('quote').innerHTML = text;
+        document.getElementById('quote').style.color = backgroundColor;
+        document.querySelector('body').style.backgroundColor = backgroundColor;
+        document.querySelector('button').style.backgroundColor = backgroundColor
+        
+      }
+    </script>
+</body>
+</html>
