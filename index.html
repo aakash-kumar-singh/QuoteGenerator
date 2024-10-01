@@ -128,7 +128,7 @@
       let status = document.querySelector('.status');
       let date = new Date();
       let hours = date.getHours();
-      if(hours >= 0 && hours < 18){
+      if(hours >= 6 && hours < 18){
         status.textContent = 'Day';
       }
       
